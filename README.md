@@ -2,10 +2,10 @@
 
 This project will contain the following:
 
-Project Description
-Hardware requirements
-Bill of Materials
-Hardware Connections
-Semantics
-Arduino Code
-Project Demo etc.
+1. Project Description
+2. Hardware requirements
+3. Bill of Materials
+4. Hardware Connections
+5. Semantics
+6. Arduino Code
+7. Project Demo etc.
