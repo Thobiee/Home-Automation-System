@@ -1,4 +1,4 @@
-# Home_Automation_System
+# Home-Automation-System
 
 This project will contain the following:
 
