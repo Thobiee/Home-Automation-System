@@ -1,5 +1,5 @@
 \documentclass[journal]{IEEEtran}
-
+\usepackage{url}
 
 % *** GRAPHICS RELATED PACKAGES ***
 %
@@ -41,17 +41,17 @@
 % can use linebreaks \\ within to get better formatting as desired
 % Do not put math or special symbols in the title.
 
-\title{Project Proposal for Home Automation System}
+\title{Home Automation System Project Proposal }
 
-\author{Mikhail~Shchukin,~\IEEEmembership{CS~807~Student,~University~of~Regina,}
+\author{Vivek~Pujara,~\IEEEmembership{CS~807~Student,~University~of~Regina,}
+\\~Mikhail~Shchukin,~\IEEEmembership{CS~807~Student,~University~of~Regina,}
 \\~Gideon~Eromosele,~\IEEEmembership{CS~807~Student,~University~of~Regina,}
-\\~Oluwatobi~Adegbola,~\IEEEmembership{CS~807~Student,~University~of~Regina,}
-~and~Vivek~Pujara,~\IEEEmembership{CS~807~Student,~University~of~Regina,}
+~and~Oluwatobi~Adegbola,~\IEEEmembership{CS~807~Student,~University~of~Regina,}
 }
 
 
 % The paper headers
-% This should either be the name of the journal or the 
+% This should either be the name of the journal or the
 % first four(ish) words of the paper
 \markboth{CS 807 Project Proposal, Mar~6th~2019}%
 {Shell \MakeLowercase{\textit{et al.}}: Design, Template, Computer Science }
@@ -96,12 +96,12 @@ design, home automation, hardware, CS 807
 
 % Some journals put the first two words in caps:
 % \IEEEPARstart{T}{his demo} file is ....
-% 
+%
 % Here we have the typical use of a "T" for an initial drop letter
 % and "HIS" in caps to complete the first word.
-\IEEEPARstart{T}{he} motivation behind choosing home automation as a research project topic is based on the increasing community interest in the Internet of Things (IoT) as a concept allowing to extend the automation of any system, including a typical residential building, to a considerably new level of integration. 
+\IEEEPARstart{T}{he} motivation behind choosing home automation as a research project topic is based on the increasing community interest in the Internet of Things (IoT) as a concept allowing to extend the automation of any system, including a typical residential building, to a considerably new level of integration.
 
-The idea revolves around having a network of various actuators and sensors, in various settings, where the user has a remote control capability for basically any interactive component of such hardware network. Particularly, an automated home can be defined as a hardware-augmented dwelling, where various sensors are the inputs keeping track of the environment and user state and the automated parts (doors, lighting, security alarm, etc.) are the actuators, the outputs of the system, and these components are connected together via some processing unit, usually a microcontroller. 
+The idea revolves around having a network of various actuators and sensors, in various settings, where the user has a remote control capability for basically any interactive component of such hardware network. Particularly, an automated home can be defined as a hardware-augmented dwelling, where various sensors are the inputs keeping track of the environment and user state and the automated parts (doors, lighting, security alarm, etc.) are the actuators, the outputs of the system, and these components are connected together via some processing unit, usually a microcontroller.
 
 For example, such system gives the resident of such hardware-augmented dwelling an ability for a TV or some living room lights to turn on based on sensing the presence of the owner in the house. Home automation enables the owner with the extended control over the property, where some functions can be accessed remotely, and the system might be able to notify the owner of its state (intrusion alert, regular status notifications, troubleshooting and more). The proposed research project strives to pick an existing hardware project related to the Internet of things and home automation and suggest meaningful modifications and improvements to the base design.
 % You must have at least 2 lines in the paragraph with the drop letter
@@ -109,13 +109,28 @@ For example, such system gives the resident of such hardware-augmented dwelling 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Base Project}
-WE NEED THE BASE PROJECT TO BE REFERENCED HERE AND EXPLAINED WHAT THEY DID
+The concept of Smart Home was introduced in 1998 and was majorly developed in the early 2000’s \textsuperscript{\cite{IEEEhowto:Hendricks}}. Since then many attempts have been made to design an automated control system that could be used in various buildings and environments. The base project has been found on Arduino Project Hub named Home Automation Using Arduino and Bluetooth Control \textsuperscript{\cite{IEEEhowto:Kumar}}. Basically, it is an Arduino-based system comprising of various sensors and actuators along with a Bluetooth module for remote control via mobile device. The features of the base project include remote conrol of lighting, doors, appliances and temperature regulation. Infrared and ultrasonic sensors are used for detecting human presence. Temperature sensor is used to monitor temperature inside the house. Servo motors and light emitting diodes are used to simulate the effects of controlling the automated parts of the house, represented by a miniature prototype.
+This base project features all of the basic functionalities expected from a typical home automation system. However, there is a large space for improvements to be made. The base project lacks security, has unnecessary redundancy in sensor usage (both infrared and ultrasonic sensors are used to detect motion) and lacks the integration of components in cases where some sensors could have served for more than just a single purpose/subsystem.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Project Proposal}
 
 \subsection{Suggested Modifications}
-SUGGESTED MODIFICATIONS COME HERE. WHAT NEW ARE WE GOING TO DO? EXACTLY - POINT BY POINT.
+Security is a major concern for every house owner. Thus, an ideal home automation system should have decent security in place. The security elements have to be implemented:
+\begin{itemize}
+    \item {Property access should only be allowed after certain authentication process. A feasible solution might be using RFID-tags and a tag reader}
+    \item {An alarm system should exist with an ability to be disabled by entering a code on security keypad}
+    \item {The house perimeter should be monitored for possible intrusions. This can be handled via certain motion sensors}
+\end{itemize}
+
+Along with security, the comfort of living is crucial. The following features can be added to sustain comfortable living standards:
+\begin{itemize}
+    \item {Light intensity control}
+    \item {Automatic operation of perimeter lights (i.e. dimmer switch)}
+    \item {Temperature and air conditioning control}
+    \item {Remote garage door control}
+    \item {Improved accessibility via Bluetooth or WiFi using a smartphone}
+\end{itemize}
+The system should also incorporate the entirety of the features offered in the base project.
 
 \subsection{Materials Required}
 The list below shows components required for the implementation of the Home Automation System:
@@ -131,20 +146,16 @@ The list below shows components required for the implementation of the Home Auto
 		\item{Temperature Sensor}
 		\item{Ultrasonic Sensor}
 		\item{Bluetooth module or Wi-Fi (NodeMCU)}
-	\end{itemize} 
+	\end{itemize}
 	\item{Actuators:}
 	\begin{itemize}
-		\item{RFID reader and Tag}
-		\item{Keypad}
-		\item{Potentiometer}
-		\item{Infrared sensor}
-		\item{Photoresistor}
-		\item{Motion Sensor}
-		\item{Temperature Sensor}
-		\item{Ultrasonic Sensor}
-		\item{Bluetooth module or Wi-Fi (NodeMCU)}
-	\end{itemize} 
-	\item{Arduino (ATMega2560 microprocessor board)}
+		\item{LEDs}
+		\item{Buzzer}
+		\item{LCD Screen}
+		\item{Servo Motor}
+		\item{DC Motor}
+	\end{itemize}
+	\item{Arduino Mega 2560 (Microcontroller board)}
 	\item{Prototyping Breadboards}
 	\item{Jumper Wires}
 	\item{Various Resistors}
@@ -158,61 +169,61 @@ The list below outlines the tentative milestones to be reached during project de
 		\begin{itemize}
 		\item{Gathering the required materials}
 		\item{Due March 10th}
-		\end{itemize} 
+		\end{itemize}
 	\item{\textbf{Milestone \#2:}}
 		\begin{itemize}
 		\item{Basic hardware assembly is done}
 		\item{No meaningful code yet}
 		\item{Due March 17th}
-		\end{itemize} 
+		\end{itemize}
 	\item{\textbf{Milestone \#3:}}
 		\begin{itemize}
 		\item{Sensors calibrated}
 		\item{Various sensors/actuators are functional on their own}
 		\item{Wireless networking is in active development}
 		\item{Due March 24th}
-		\end{itemize} 
+		\end{itemize}
 	\item{\textbf{Milestone \#4:}}
 		\begin{itemize}
 		\item{ A completely functional demo prototype is ready}
 		\item{Due March 31st}
-		\end{itemize} 
+		\end{itemize}
 	\item{\textbf{GOAL Milestone:}  }
 		\begin{itemize}
 		\item{Home Automated System final prototype works with all planned functionality and no failures}
 		\item{The documentation of the implemented hardware design is finalized}
 		\item{Due April 3rd}
-		\end{itemize} 
-\end{itemize} 
+		\end{itemize}
+\end{itemize}
 
 \subsection{Workload Distribution}
 The project research, hardware design development and other tasks/roles are divided among the research team as follows:
 \begin{itemize}
-\item{Mikhail Shchukin}
-	\begin{itemize}
-	\item{Documentation Lead Specialist}
-	\item{Prototype Testing}
-	\end{itemize} 
-\item{Gideon Eromosele}
-	\begin{itemize}
-	\item{Primary Hardware Designer}
-	\item{Auxillary Programmer}
-	\end{itemize} 
-\item{Oluwatobi Adegbola}
-	\begin{itemize}
-	\item{Auxillary Hardware Designer}
-	\item{User Requirement Ellicitation}
-	\end{itemize} 
 \item{Vivek Pujara}
 	\begin{itemize}
 	\item{Lead Programmer}
 	\item{Project Management Lead}
-	\end{itemize} 
-\end{itemize} 
+	\end{itemize}
+\item{Mikhail Shchukin}
+	\begin{itemize}
+	\item{Documentation Lead Specialist}
+	\item{Prototype Testing}
+	\end{itemize}
+\item{Gideon Eromosele}
+	\begin{itemize}
+	\item{Primary Hardware Designer}
+	\item{Auxillary Programmer}
+	\end{itemize}
+\item{Oluwatobi Adegbola}
+	\begin{itemize}
+	\item{Auxillary Hardware Designer}
+	\item{User Requirement Ellicitation}
+	\end{itemize}
+\end{itemize}
 
 
 \section{Summary}
-WE NEED TO WRITE A MEANINGFUL SUMMARY OF THE PROJECT WE ARE SUGGESTING TO DEVELOP
+Home automation provides property owners the opportunity to monitor and control the state of their home with negligible latency \textsuperscript{\cite{IEEEhowto:Pavithra}}. Ideally, the introduction of home automation enhances various key features of a typical dwelling: security, power saving (especially for bigger appliances), accident prevention. The base project mentioned in this document inspired our team to launch a home automation development project to reduce the inefficiencies, redundancies and omissions of our predecessors, and to offer a better quality solution, at least on a prototype level. Our project is inspired by Shubham Kumar's attempt on home automation with Arduino microcontroller \textsuperscript{\cite{IEEEhowto:Kumar}}. Our goal is to develop the security of the system, light intensity control, automatic triggering of perimeter lights, temperature monitoring and controlling air conditioning systems, garage door control, and better system accessibility via Bluetooth or Wi-Fi through smartphones. All these improvements have to be implemented in order to sustain a comfortable, reliable and secure residential environment.
 
 
 % Can use something like this to put references on a page
@@ -235,14 +246,19 @@ WE NEED TO WRITE A MEANINGFUL SUMMARY OF THE PROJECT WE ARE SUGGESTING TO DEVELO
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
+\begin{flushleft}
 \begin{thebibliography}{1}
 
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+\bibitem{IEEEhowto:Hendricks}
+Hendricks, D. (2014). The History of Smart Homes. Retrieved from
+\url{https://www.iotevolutionworld.com/m2m/articles/376816-history-smart-homes.htm}
+\bibitem{IEEEhowto:Kumar}
+Kumar, S. (2019). Home Automation Using Arduino and Bluetooth Control. Retrieved from \url{https://create.arduino.cc/projecthub/Shubhamkumar97/home-automation-using-arduino-and-bluetooth-control-404e9c?ref=user\&ref\_id=598721\&offset=0}
+\bibitem{IEEEhowto:Pavithra}
+Pavithra, D., \& Balakrishnan, R. (2015). IoT based monitoring and control system for home automation. 2015 Global Conference on Communication Technologies (GCCT), 169-173. doi: 10.1109/gcct.2015.7342646
 
 \end{thebibliography}
-
+\end{flushleft}
 
 % that's all folks
 \end{document}
