@@ -41,7 +41,7 @@
 % can use linebreaks \\ within to get better formatting as desired
 % Do not put math or special symbols in the title.
 
-\title{Project Proposal for Home Automation System}
+\title{Home Automation System Project Proposal }
 
 \author{Vivek~Pujara,~\IEEEmembership{CS~807~Student,~University~of~Regina,}
 \\~Mikhail~Shchukin,~\IEEEmembership{CS~807~Student,~University~of~Regina,}
@@ -109,30 +109,28 @@ For example, such system gives the resident of such hardware-augmented dwelling 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Base Project}
-The concept of Smart Home was introduced in 1998 and was majorly developed in the early 2000’s \textsuperscript{\cite{IEEEhowto:Hendricks}}. Since then many attempts have been made to design a system that could be used in almost any type of a house. The project taken as a base is a similar attempt. It was found on Arduino Project Hub named Home Automation Using Arduino and Bluetooth Control \textsuperscript{\cite{IEEEhowto:Kumar}}. It is an Arduino based system comprising of several sensors and actuators along with a Bluetooth module for control via mobile device. The functionalities include controlling lights, door, TV and temperature. Sensors namely Infrared (IR), motion sensor (PIR) and ultrasound are used for detecting human presence. Temperature sensor has also been used to monitor temperature inside the house. Servo motor and LED’s are used to simulate the effects of controlling lights, TV and door.
-Purpose behind selecting this project as a base is that it has all the basic functionalities a home automation system should have. Yet there is huge scope of improvement. There is lack of security, redundancy in usage of different types of sensors and the sensors available in the system can be used as input for several other control systems.
+The concept of Smart Home was introduced in 1998 and was majorly developed in the early 2000’s \textsuperscript{\cite{IEEEhowto:Hendricks}}. Since then many attempts have been made to design an automated control system that could be used in various buildings and environments. The base project has been found on Arduino Project Hub named Home Automation Using Arduino and Bluetooth Control \textsuperscript{\cite{IEEEhowto:Kumar}}. Basically, it is an Arduino-based system comprising of various sensors and actuators along with a Bluetooth module for remote control via mobile device. The features of the base project include remote conrol of lighting, doors, appliances and temperature regulation. Infrared and ultrasonic sensors are used for detecting human presence. Temperature sensor is used to monitor temperature inside the house. Servo motors and light emitting diodes are used to simulate the effects of controlling the automated parts of the house, represented by a miniature prototype.
+This base project features all of the basic functionalities expected from a typical home automation system. However, there is a large space for improvements to be made. The base project lacks security, has unnecessary redundancy in sensor usage (both infrared and ultrasonic sensors are used to detect motion) and lacks the integration of components in cases where some sensors could have served for more than just a single purpose/subsystem.
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Project Proposal}
 
 \subsection{Suggested Modifications}
-Security is a major concern for every house owner, thus a home automation system should have better security. Following security additions are to be done:
-\begin{enumerate}
-    \item Entry into the house should only be allowed after verifying a person’s identity, planned to be done using RFID tags and reader.
-    \item There should also be an alarm system which could be turned off by entering a code.
-    \item Perimeter of the house should be monitored for possible intrusions.
-\end{enumerate}
+Security is a major concern for every house owner. Thus, an ideal home automation system should have decent security in place. The security elements have to be implemented:
+\begin{itemize}
+    \item {Property access should only be allowed after certain authentication process. A feasible solution might be using RFID-tags and a tag reader}
+    \item {An alarm system should exist with an ability to be disabled by entering a code on security keypad}
+    \item {The house perimeter should be monitored for possible intrusions. This can be handled via certain motion sensors}
+\end{itemize}
 
-Along with security, comfort is crucial. Following functionalities can be added to create increase the user’s comfort:
-\begin{enumerate}
-    \item Controlling light intensity
-    \item Automatic operation of perimeter lights.
-    \item Monitoring temperature and controlling Air Conditioning systems
-    \item Garage door control
-    \item Providing better access and control of the system via Mobile devices using Bluetooth or WiFi.
-\end{enumerate}
-The system should also have all the functionalities offered in the base project.
+Along with security, the comfort of living is crucial. The following features can be added to sustain comfortable living standards:
+\begin{itemize}
+    \item {Light intensity control}
+    \item {Automatic operation of perimeter lights (i.e. dimmer switch)}
+    \item {Temperature and air conditioning control}
+    \item {Remote garage door control}
+    \item {Improved accessibility via Bluetooth or WiFi using a smartphone}
+\end{itemize}
+The system should also incorporate the entirety of the features offered in the base project.
 
 \subsection{Materials Required}
 The list below shows components required for the implementation of the Home Automation System:
@@ -225,7 +223,7 @@ The project research, hardware design development and other tasks/roles are divi
 
 
 \section{Summary}
-Home automation provides homeowners the opportunity to monitor and control the activities in their home in near real-time \textsuperscript{\cite{IEEEhowto:Pavithra}}. Homeowners can get intruder notifications which helps keep the home safe, and control appliances which help to manage energy among other things. This was why the group decided to embark on a home automation-based project to help reduce the security concern of a homeowner. The system is going to be based on the Arduino Microcontroller and is an upgrade to the project by Shubham Kumar \textsuperscript{\cite{IEEEhowto:Kumar}}. As a differentiating factor, we will add controlling light intensity, automatic operation of perimeter lights, temperature monitoring and controlling air conditioning systems, garage door control, and better access and control of the system via Mobile devices using Bluetooth or Wi-Fi. All these to help the homeowner with comfort and less security concern. The project will go through diverse stages including; gathering hardware and designing a schematic of the system, door security and alarm system, light control (both in-house and perimeter), garage door access and Temperature control, perimeter security and remote access via mobile device (Only if time permits).
+Home automation provides property owners the opportunity to monitor and control the state of their home with negligible latency \textsuperscript{\cite{IEEEhowto:Pavithra}}. Ideally, the introduction of home automation enhances various key features of a typical dwelling: security, power saving (especially for bigger appliances), accident prevention. The base project mentioned in this document inspired our team to launch a home automation development project to reduce the inefficiencies, redundancies and omissions of our predecessors, and to offer a better quality solution, at least on a prototype level. Our project is inspired by Shubham Kumar's attempt on home automation with Arduino microcontroller \textsuperscript{\cite{IEEEhowto:Kumar}}. Our goal is to develop the security of the system, light intensity control, automatic triggering of perimeter lights, temperature monitoring and controlling air conditioning systems, garage door control, and better system accessibility via Bluetooth or Wi-Fi through smartphones. All these improvements have to be implemented in order to sustain a comfortable, reliable and secure residential environment.
 
 
 % Can use something like this to put references on a page
