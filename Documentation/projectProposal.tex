@@ -1,5 +1,5 @@
 \documentclass[journal]{IEEEtran}
-
+\usepackage{url}
 
 % *** GRAPHICS RELATED PACKAGES ***
 %
@@ -109,13 +109,30 @@ For example, such system gives the resident of such hardware-augmented dwelling 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Base Project}
-WE NEED THE BASE PROJECT TO BE REFERENCED HERE AND EXPLAINED WHAT THEY DID
+The concept of Smart Home was introduced in 1998 and was majorly developed in the early 2000’s \textsuperscript{\cite{IEEEhowto:Hendricks}}. Since then many attempts have been made to design a system that could be used in almost any type of a house. The project taken as a base is a similar attempt. It was found on Arduino Project Hub named Home Automation Using Arduino and Bluetooth Control \textsuperscript{\cite{IEEEhowto:Kumar}}. It is an Arduino based system comprising of several sensors and actuators along with a Bluetooth module for control via mobile device. The functionalities include controlling lights, door, TV and temperature. Sensors namely Infrared (IR), motion sensor (PIR) and ultrasound are used for detecting human presence. Temperature sensor has also been used to monitor temperature inside the house. Servo motor and LED’s are used to simulate the effects of controlling lights, TV and door.
+Purpose behind selecting this project as a base is that it has all the basic functionalities a home automation system should have. Yet there is huge scope of improvement. There is lack of security, redundancy in usage of different types of sensors and the sensors available in the system can be used as input for several other control systems.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Project Proposal}
 
 \subsection{Suggested Modifications}
-SUGGESTED MODIFICATIONS COME HERE. WHAT NEW ARE WE GOING TO DO? EXACTLY - POINT BY POINT.
+Security is a major concern for every house owner, thus a home automation system should have better security. Following security additions are to be done:
+\begin{enumerate}
+    \item Entry into the house should only be allowed after verifying a person’s identity, planned to be done using RFID tags and reader.
+    \item There should also be an alarm system which could be turned off by entering a code.
+    \item Perimeter of the house should be monitored for possible intrusions.
+\end{enumerate}
+
+Along with security, comfort is crucial. Following functionalities can be added to create increase the user’s comfort:
+\begin{enumerate}
+    \item Controlling light intensity
+    \item Automatic operation of perimeter lights.
+    \item Monitoring temperature and controlling Air Conditioning systems
+    \item Garage door control
+    \item Providing better access and control of the system via Mobile devices using Bluetooth or WiFi.
+\end{enumerate}
+The system should also have all the functionalities offered in the base project.
 
 \subsection{Materials Required}
 The list below shows components required for the implementation of the Home Automation System:
@@ -208,7 +225,7 @@ The project research, hardware design development and other tasks/roles are divi
 
 
 \section{Summary}
-Home automation provides homeowners the opportunity to monitor and control the activities in their home in near real-time (Pavithra & Balakrishnan, 2015). Homeowners can get intruder notifications which helps keep the home safe, and control appliances which help to manage energy among other things. This was why the group decided to embark on a home automation-based project to... The system is based on the Arduino Microcontroller and is an upgrade to the project by (Kumar, 2019). As a differentiating factor, we added ...... to help the homeowner......The project went through diverse stages including.(Milestones)
+Home automation provides homeowners the opportunity to monitor and control the activities in their home in near real-time \textsuperscript{\cite{IEEEhowto:Pavithra}}. Homeowners can get intruder notifications which helps keep the home safe, and control appliances which help to manage energy among other things. This was why the group decided to embark on a home automation-based project to help reduce the security concern of a homeowner. The system is going to be based on the Arduino Microcontroller and is an upgrade to the project by Shubham Kumar \textsuperscript{\cite{IEEEhowto:Kumar}}. As a differentiating factor, we will add controlling light intensity, automatic operation of perimeter lights, temperature monitoring and controlling air conditioning systems, garage door control, and better access and control of the system via Mobile devices using Bluetooth or Wi-Fi. All these to help the homeowner with comfort and less security concern. The project will go through diverse stages including; gathering hardware and designing a schematic of the system, door security and alarm system, light control (both in-house and perimeter), garage door access and Temperature control, perimeter security and remote access via mobile device (Only if time permits).
 
 
 % Can use something like this to put references on a page
@@ -235,13 +252,12 @@ Home automation provides homeowners the opportunity to monitor and control the a
 \begin{thebibliography}{1}
 
 \bibitem{IEEEhowto:Hendricks}
-Hendricks, D. (2014). The History of Smart Homes. Retrieved from \url{https://www.iotevolutionworld.com/m2m/articles/376816-history-smart-homes.htm}
-
+Hendricks, D. (2014). The History of Smart Homes. Retrieved from
+\url{https://www.iotevolutionworld.com/m2m/articles/376816-history-smart-homes.htm}
 \bibitem{IEEEhowto:Kumar}
-Kumar, S. (2019). Home Automation Using Arduino and Bluetooth Control. Retrieved from \url{https://create.arduino.cc/projecthub/Shubhamkumar97/home-automation-using-arduino-and-bluetooth-control-404e9c?ref=user&ref_id=598721&offset=0}
-
+Kumar, S. (2019). Home Automation Using Arduino and Bluetooth Control. Retrieved from \url{https://create.arduino.cc/projecthub/Shubhamkumar97/home-automation-using-arduino-and-bluetooth-control-404e9c?ref=user\&ref\_id=598721\&offset=0}
 \bibitem{IEEEhowto:Pavithra}
-Pavithra, D., & Balakrishnan, R. (2015). IoT based monitoring and control system for home automation. 2015 Global Conference on Communication Technologies (GCCT), 169-173. doi: 10.1109/gcct.2015.7342646
+Pavithra, D., \& Balakrishnan, R. (2015). IoT based monitoring and control system for home automation. 2015 Global Conference on Communication Technologies (GCCT), 169-173. doi: 10.1109/gcct.2015.7342646
 
 \end{thebibliography}
 \end{flushleft}
