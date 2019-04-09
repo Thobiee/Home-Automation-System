@@ -2,15 +2,8 @@
 #include <SoftwareSerial.h>
 #include <ESP8266WiFi.h>
 
-/*********
-  Rui Santos
-  Complete project details at http://randomnerdtutorials.com  
-*********/
 SoftwareSerial NodeSerial(D2, D3);
 
-// Replace with your network credentials
-//const char ssid[] = "SASKTEL0400";
-//const char password[] = "3065294159";
 const char ssid[]="SM-G955W0291";  // replace with your ssid & pass
 const char password[]="yszc9330";
 int status = WL_IDLE_STATUS;
@@ -25,16 +18,6 @@ String header;
 String output0State = "off";
 String output1State = "off";
 String output2State = "off";
-String output3State = "off";
-String output4State = "off";
-
-/** Assign output variables to GPIO pins
-const int output5 = 5;
-const int output4 = 15;
-const int output3 = 3;
-const int output2 = 2;
-const int output1 = 1;
-const int output0 = 13;*/
 
 const int zero = 0;
 const int one = 1;
@@ -67,6 +50,7 @@ void setup() {
   server.begin();
   wiFiStatus();
 }
+
 /**
  * Thanks to Rui Santos from https://randomnerdtutorials.com/esp8266-web-server/
  */
@@ -98,81 +82,35 @@ void loop(){
               Serial.println("GPIO 0 on");
               output0State = "on";             
               sendingData(zero);
-            
-              /**output4State = "off";      
-              output3State = "off";        
-              output2State = "off";        
-              output1State = "off";*/
               
             } else if (header.indexOf("GET /0/off") >= 0) {
               Serial.println("GPIO 0 off");
               output0State = "off";             
-              sendingData(zero);
+              sendingData(one);
               
             } else if (header.indexOf("GET /1/on") >= 0) {
               Serial.println("GPIO 1 on");
               output1State = "on";
-              sendingData(one);
-    
-              /**output4State = "off";        
-              output3State = "off";        
-              output2State = "off";        
-              output0State = "off";*/
+              sendingData(two);
               
             } else if (header.indexOf("GET /1/off") >= 0) {
               Serial.println("GPIO 1 off");
               output1State = "off";             
-              sendingData(one);
+              sendingData(three);
               
             } else if (header.indexOf("GET /2/on") >= 0) {
               Serial.println("GPIO 2 on");
               output2State = "on";
-              sendingData(two);
- 
-              /**output4State = "off";        
-              output3State = "off";        
-              output1State = "off";        
-              output0State = "off";*/
+              sendingData(four);
               
             } else if (header.indexOf("GET /2/off") >= 0) {
               Serial.println("GPIO 2 off");
               output2State = "off";             
-              sendingData(two);
-              
-            } else if (header.indexOf("GET /3/on") >= 0) {
-              Serial.println("GPIO 3 on");
-              output3State = "on";
-              sendingData(three);
-
-              /**output4State = "off";       
-              output2State = "off";        
-              output1State = "off";        
-              output0State = "off";*/
-              
-            } else if (header.indexOf("GET /3/off") >= 0) {
-              Serial.println("GPIO 3 off");
-              output3State = "off";             
-              sendingData(three);
-              
-            } else if (header.indexOf("GET /4/on") >= 0) {
-              Serial.println("GPIO 4 on");
-              output4State = "on";
-              sendingData(four);
-
-              /**output3State = "off";       
-              output2State = "off";        
-              output1State = "off";        
-              output0State = "off";*/
-              
-            } else if (header.indexOf("GET /4/off") >= 0) {
-              Serial.println("GPIO 4 off");
-              output4State = "off";             
-              sendingData(four);
-              
+              sendingData(five);
             } 
             
             // Display the HTML web page
-            HTML_Page(client, output0State, output1State, output2State, output3State, output4State);
+            HTML_Page(client, output0State, output1State, output2State);
             
             // The HTTP response ends with another blank line
             client.println();
@@ -216,7 +154,7 @@ void sendingData(int val){
   delay(50);
 }
 
-void HTML_Page(WiFiClient client, String A, String B, String C, String D, String E){
+void HTML_Page(WiFiClient client, String A, String B, String C){
   client.println("<!DOCTYPE html><html>");
   client.println("<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
   client.println("<link rel=\"icon\" href=\"data:,\">");
@@ -233,52 +171,39 @@ void HTML_Page(WiFiClient client, String A, String B, String C, String D, String
   client.println("<body><div class=center>");
   client.println("<h1>Home Automation System</h1>");
 
+  
+  // Indoor Lights Function
+  client.println("<div align=center><h3>Indoor Lights</h3></div>");
   // Display current state, and ON/OFF buttons for GPIO 5
-  client.println("<center>TS - State " + A + "</center>");
+  client.println("<center>Light " + A + "</center>");
   // If the output5State is off, it displays the ON button       
   if (A == "off") {
-    client.println("<a href=\"/0/on\"><button class=\"button\">Lights</button></a>");
+    client.println("<a href=\"/0/on\"><button class=\"button\">On</button></a>");
   } else {
-    client.println("<a href=\"/0/off\"><button class=\"button button2\">L Clicked</button></a>");
-  } 
-     
-  // Display current state, and ON/OFF buttons for GPIO 1  
-  client.println("<center>AD - State " + B + "</center>");
-  // If the output4State is off, it displays the ON button       
-  if (B == "off") {
-    client.println("<a href=\"/1/on\"><button class=\"button\">Outside Security</button></a>");
-  } else {
-    client.println("<a href=\"/1/off\"><button class=\"button button2\">OS Clicked</button></a> \n");
+    client.println("<a href=\"/0/off\"><button class=\"button button2\">Off</button></a>");
   }
-  
-  // Display current state, and ON/OFF buttons for GPIO 2  
-  client.println("<center>R1 - State " + C + "</center>");
+
+  // Garage Door Function
+  client.println("<div align=center><h3>Garrage Door</h3></div>");
+  // Display current state, and ON/OFF buttons for GPIO 1 
+  client.println("<center>Garage Door " + B + "</center>");
   // If the output5State is off, it displays the ON button       
-  if (C == "off") {
-    client.println("<a href=\"/2/on\"><button class=\"button\">Garrage Door</button></a>");
+  if (B == "off") {
+    client.println("<a href=\"/1/on\"><button class=\"button\">Open</button></a>");
   } else {
-    client.println("<a href=\"/2/off\"><button class=\"button button2\">GD Clicked</button></a>");
+    client.println("<a href=\"/1/off\"><button class=\"button button2\">Close</button></a>");
   } 
 
-  client.println("<div align=center><h3>Fan Speed</h3></div>");
-     
-  // Display current state, and ON/OFF buttons for GPIO 3  
-  client.println("<center>R2 - State " + D + "</center>");
+  // Outdoor Security Alarm Function
+  client.println("<div align=center><h3>Security Alarm</h3></div>");     
+  // Display current state, and ON/OFF buttons for GPIO 2  
+  client.println("<center>Security Alarm " + C + "</center>");
   // If the output4State is off, it displays the ON button       
-  if (D == "off") {
-    client.println("<a href=\"/3/on\"><button class=\"button\">Increase</button></a>");
+  if (C == "off") {
+    client.println("<a href=\"/2/on\"><button class=\"button\">Activate</button></a>");
   } else {
-    client.println("<a href=\"/3/off\"><button class=\"button button2\">I Clicked</button></a>");
+    client.println("<a href=\"/2/off\"><button class=\"button button2\">Deactivate</button></a>");
   }
-  
-  // Display current state, and ON/OFF buttons for GPIO 4 
-  client.println("<center>R3 - State " + E + "</center>");
-  // If the output5State is off, it displays the ON button       
-  if (E == "off") {
-    client.println("<a href=\"/4/on\"><button class=\"button\">Decrease</button></a>");
-  } else {
-    client.println("<a href=\"/4/off\"><button class=\"button button2\">D Clicked</button></a>");
-  } 
 
   client.println("<script>document.getElementById(\"myBtn\").onclick = function() {myFunction()};");
   client.println("function myFunction() {document.getElementById(\"myDropdown\").classList.toggle(\"show\");}</script>");
