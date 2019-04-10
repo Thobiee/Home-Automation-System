@@ -1,5 +1,5 @@
-#define HouseLights 13 // defining pin 13 for buzzer output
-#define pir 2 // defining pin for LDR input
+#define HouseLights 25 // defining pin 25 for lights output
+#define pir 20 // defining pin for LDR input
 
 int PirValue;
 void setup() 

@@ -30,8 +30,8 @@
 #include <SPI.h>
 #include <MFRC522.h>
 #include <Stepper.h>
-const int stepsPerRevolution = 200;
-Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);
+const int stepsPerRevolution = 510;
+Stepper myStepper(stepsPerRevolution, 14, 16, 15, 17);
 
 #define RST_PIN         5          // Configurable, see typical pin layout above
 #define SS_1_PIN        53         // Configurable, take a unused pin, only HIGH/LOW required, must be diffrent to SS 2
@@ -111,10 +111,11 @@ void dump_byte_array(byte *buffer, byte bufferSize) {
 }
 
 void Print(String tagID){
-    if (tagID.substring(1) == "40 1D 79 A5") {
+    if (tagID.substring(1) == "40 1D 79 A5") 
+    {
       Serial.println(tagID);
-      myStepper.step(stepsPerRevolution);
-      delay(1000);
       myStepper.step(-stepsPerRevolution);
+      delay(1000);
+      myStepper.step(stepsPerRevolution);
     }
 }

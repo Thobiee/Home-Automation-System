@@ -1,5 +1,5 @@
-#define PerLight 13 // defining pin 13 for perimeter lights
-#define ldr 2 // defining pin for LDR input
+#define PerLight 24 // defining pin 24 for perimeter lights
+#define ldr A0 // defining pin for LDR input
 
 
 //bool LDRstate, prevLDRstate = true; // here true means day and false means night
@@ -15,24 +15,34 @@ void setup()
   Serial.begin(9600);
   digitalWrite(PerLight,LOW);
   
-  attachInterrupt(digitalPinToInterrupt(ldr), turnON, LOW); //turnOn() method would be called when the value of PIR sensor changes
+//  attachInterrupt(digitalPinToInterrupt(ldr), turnON, LOW); //turnOn() method would be called when the value of PIR sensor changes
+ //attachInterrupt(digitalPinToInterrupt(ldr), turnOFF, HIGH);
 }
 
 // state change code used from https://www.arduino.cc/en/Tutorial/StateChangeDetection
 void loop() 
 {
-  LDRvalue = digitalRead(ldr);
+  LDRvalue = analogRead(ldr);
+  if(LDRvalue<516)
+  {
+    turnON();
+    }
+  else
+  {
+    turnOFF();
+   }
   Serial.println(LDRvalue);
-  delay(500);
-  digitalWrite(PerLight, LOW);  
+  delay(500); 
 }
 
 void turnON()
 {
+  Serial.println("Lights on");
   digitalWrite(PerLight,HIGH); //switching the buzzer off
 }
 
 void turnOFF()
 {
+  Serial.println("Lights on");
   digitalWrite(PerLight,LOW); //switching the buzzer off
 }

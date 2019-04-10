@@ -4,8 +4,10 @@
 
 SoftwareSerial NodeSerial(D2, D3);
 
-const char ssid[]="SM-G955W0291";  // replace with your ssid & pass
-const char password[]="yszc9330";
+//const char ssid[]="SM-G955W0291";  // replace with your ssid & pass
+//const char password[]="yszc9330";
+const char ssid[]="VIBE";  // replace with your ssid & pass
+const char password[]="11223344";
 int status = WL_IDLE_STATUS;
 
 // Set web server port number to 80
@@ -25,6 +27,7 @@ const int two = 2;
 const int three = 3;
 const int four = 4;
 const int five = 5;
+const int seven = 7 ;
 
 void setup() {
   pinMode(D2,INPUT);
@@ -81,7 +84,7 @@ void loop(){
             if (header.indexOf("GET /0/on") >= 0) {
               Serial.println("GPIO 0 on");
               output0State = "on";             
-              sendingData(zero);
+              sendingData(seven);
               
             } else if (header.indexOf("GET /0/off") >= 0) {
               Serial.println("GPIO 0 off");

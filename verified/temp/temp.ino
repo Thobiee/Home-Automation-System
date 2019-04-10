@@ -1,6 +1,6 @@
 #include "dht.h"
-#define dht_apin A0 // Analog Pin sensor is connected to
-#define fan_pin 13
+#define dht_apin A2 // Analog Pin sensor is connected to
+#define fan_pin 26
 #define pot_pin A1
 
 int pot=0, threshold=0;
@@ -32,12 +32,12 @@ void loop(){
     Serial.println("C  ");
     if(DHT.temperature > threshold)
     {
-      digitalWrite(13,HIGH);
+      digitalWrite(fan_pin,HIGH);
       Serial.println("on");
     }
     else
     {
-    digitalWrite(13,LOW);
+    digitalWrite(fan_pin,LOW);
     Serial.println("off");
     }
     

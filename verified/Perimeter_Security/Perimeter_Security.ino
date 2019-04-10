@@ -1,6 +1,6 @@
 #define buzzer 13 // defining pin 13 for buzzer output
-#define ir 2 // defining pin for IR input
-#define button 3
+#define ir 18 // defining pin for IR input
+#define button 19
 
 int IRvalue, buttonV;
 void setup() 
@@ -22,24 +22,24 @@ void loop()
 {
   IRvalue = digitalRead(ir);
   buttonV = digitalRead(button);
-  Serial.print("IR = ");
-  Serial.print(IRvalue);
-  Serial.println();
-  Serial.print("button ");
-  Serial.print(buttonV);
-  Serial.println();
-  delay(1000);
+//  Serial.print("IR = ");
+//  Serial.print(IRvalue);
+//  Serial.println();
+//  Serial.print("button ");
+//  Serial.print(buttonV);
+//  Serial.println();
+ // delay(1000);
   //digitalWrite(HouseLights, LOW);
 }
 
 void turnON()
 {
   digitalWrite(buzzer,HIGH); //switching the buzzer on
-  Serial.print("buzzor on");
+  Serial.println("buzzor on");
 }
 
 void turnOFF()
 {
   digitalWrite(buzzer,LOW); //switching the buzzer off
-  Serial.print("buzzor off");
+  Serial.println("buzzor off");
 }
