@@ -2,33 +2,14 @@
 #include <MFRC522.h>
 #include <SoftwareSerial.h>             // Libracy for serial communication
 #include <Stepper.h>
-
-const int stepsPerRevolution = 510;
+#include <LiquidCrystal.h>
+#include "dht.h"
+#include <Keypad.h>
 
 #define STEPS 2038 // the number of steps in one revolution of your motor (28BYJ-48)
-Stepper stepper(STEPS, 6, 8, 7, 9);
-
-Stepper myStepper(stepsPerRevolution, 14, 16, 15, 17);
-
-SoftwareSerial ArduinoSerial(11, 10);   // Pins declaration for serial communication between NodeMCU and Mega
-
 #define RST_PIN         5          // Configurable, see typical pin layout above
 #define SS_1_PIN        53         // Configurable, take a unused pin, only HIGH/LOW required, must be diffrent to SS 2
-
 #define NR_OF_READERS   1
-
-byte ssPins[] = {SS_1_PIN};
-
-MFRC522 mfrc522[NR_OF_READERS];   // Create MFRC522 instance.
-
-int receivedChar = 0;         //Place holder for NodeMCU character
-int lastCommand = 0;     // previous state of the button
-
-int previousMillis = 0;
-long interval = 5000;  
-
-boolean perimeterAlarm = false;
-
 #define buzzer 13 // defining pin 13 for buzzer output
 #define ir 18 // defining pin for IR input
 #define pushbutton 19 //defining button to stop alarm
@@ -38,20 +19,28 @@ boolean perimeterAlarm = false;
 
 #define PerLight 24 // defining pin 24 for perimeter lights
 #define ldr A0 // defining pin for LDR input
-int LDRvalue;
-
-#include "dht.h"
 #define dht_apin A2 // Analog Pin sensor is connected to
 #define fan_pin 26
 #define pot_pin A1
+#define rFID_RED A3
+#define rFID_GREEN A4
+#define rFID_BLUE A5
+
+const int stepsPerRevolution = 510;
+byte ssPins[] = {SS_1_PIN};
+int receivedChar = 0;         //Place holder for NodeMCU character
+int lastCommand = 0;     // previous state of the button
+int previousMillis = 0;
+long interval = 5000;  
+boolean perimeterAlarm = false;
+int LDRvalue;
+
 int pot=0, threshold=0;
 dht DHT;
 
 char pwd[5]={'C','*','8','0','7'};
 bool correct;
 int i;
-
-#include <Keypad.h>
 
 const byte ROWS = 4; //four rows
 const byte COLS = 4; //four columns
@@ -65,11 +54,24 @@ char hexaKeys[ROWS][COLS] = {
 byte rowPins[ROWS] = {33, 32, 31, 30}; //connect to the row pinouts of the keypad
 byte colPins[COLS] = {37, 66, 35, 34}; //connect to the column pinouts of the keypad
 
+//LiquidCrystal lcd(40, 41, 42, 43, 44, 45);
+//LiquidCrystal lcd(1, 2, 4, 5, 6, 7);
+
+Stepper stepper(STEPS, 6, 8, 7, 9);
+Stepper myStepper(stepsPerRevolution, 14, 16, 15, 17);
+SoftwareSerial ArduinoSerial(11, 10);   // Pins declaration for serial communication between NodeMCU and Mega
+
+MFRC522 mfrc522[NR_OF_READERS];   // Create MFRC522 instance.
+
 //initialize an instance of class NewKeypad
 Keypad customKeypad = Keypad( makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS); 
 
 
 void setup() {
+
+  pinMode(rFID_RED, OUTPUT);
+  pinMode(rFID_RED, OUTPUT);
+  pinMode(rFID_RED, OUTPUT); 
   
   ///////Perimeter Security 
   pinMode(buzzer,OUTPUT);
@@ -102,7 +104,7 @@ void setup() {
   Serial.begin(115200);
   while (!Serial);
   
-   SPI.begin();        // Init SPI bus
+  SPI.begin();        // Init SPI bus
    
   for (uint8_t reader = 0; reader < NR_OF_READERS; reader++) {
     mfrc522[reader].PCD_Init(ssPins[reader], RST_PIN); // Init each MFRC522 card
@@ -113,6 +115,22 @@ void setup() {
   }
 
     ArduinoSerial.begin(9600);
+    
+    
+//    //Switch on the backlight
+//    lcd.setBacklightPin(BACKLIGHT_PIN,POSITIVE);
+//    lcd.setBacklight(HIGH);
+//    
+    //Print at cursor Location
+//    lcd.clear();
+//    lcd.setCursor(0,0);
+//    lcd.print("HOME");
+//    
+//    //goto first column (column 0) and second line (line 1)
+//    lcd.setCursor(0,1);
+//    lcd.print("AUTOMATION");
+//    delay(500);
+       Serial.println("HOME AUTOMATION");
 }
 
 void loop() {
@@ -142,7 +160,8 @@ for (uint8_t reader = 0; reader < NR_OF_READERS; reader++) {
       strID.toUpperCase();
 
       Print(strID);
-
+      setRGBColor(255, 255, 255);
+      
       // Halt PICC
       mfrc522[reader].PICC_HaltA();
       // Stop encryption on PCD
@@ -166,14 +185,11 @@ for (uint8_t reader = 0; reader < NR_OF_READERS; reader++) {
     case 7:  //Web App Indoor Light Function -->ON
       Serial.println("Print method call");
       turnLightsON();
-      // check if pesdestrain button is pushed 
-      //methodCall(); 
       break;  //End Case
     
     case 1:  //Web App Indoor Light Function --> OFF
       Serial.println("Print method call");
       turnLightsOFF();
-      //methodCall(); 
       break; 
       
     case 2:  //Web App Garage Door Function --> Open
@@ -198,7 +214,6 @@ for (uint8_t reader = 0; reader < NR_OF_READERS; reader++) {
     
     case 6:  //Web App Outdoor Security Alarm Function --> Deactivate
       Serial.println("Print method call");
-      //methodCall(); 
       break;
    }
     lastCommand = command;
@@ -215,10 +230,35 @@ for (uint8_t reader = 0; reader < NR_OF_READERS; reader++) {
    }
   Serial.println(LDRvalue);
   delay(500); 
-
+  
   DHT.read11(dht_apin);
     pot= analogRead(pot_pin);
     threshold = map(pot,0,1023,0,40);
+    Serial.print("Threshold Value of Temperature");
+    Serial.println(threshold);
+    Serial.print("Current humidity = ");
+    Serial.print(DHT.humidity);
+    Serial.print("%  ");
+    Serial.print("temperature = ");
+    Serial.print(DHT.temperature); 
+    Serial.println("C  ");
+    
+//    lcd.clear();
+//    lcd.setCursor(0,0);
+//    lcd.print("H = ");
+//    lcd.print(DHT.humidity);
+//    lcd.print(" % ");
+//    
+//    lcd.print("T = ");
+//    lcd.print(DHT.temperature);
+//    lcd.print(" C");
+//
+//    lcd.setCursor(0,1);    
+//    lcd.print("Threshold = ");
+//    lcd.print(threshold);
+//    lcd.print(" C");
+//    delay(500);
+    
      if(DHT.temperature > threshold)
     {
       digitalWrite(fan_pin,HIGH);
@@ -315,14 +355,35 @@ void dump_byte_array(byte *buffer, byte bufferSize) {
   }
 }
 
+void setRGBColor(int red, int green, int blue)
+{
+  red = 255 - red;
+  green = 255 - green;
+  blue = 255 - blue;
+
+  analogWrite(rFID_RED, red);
+  analogWrite(rFID_GREEN, green);
+  analogWrite(rFID_BLUE, blue);  
+}
+
 void Print(String tagID){
 
 if (tagID.substring(1) == "40 1D 79 A5") 
 {
-  Serial.println(tagID);
+//  lcd.clear();
+//  lcd.setCursor(0,0);
+//  lcd.print("Valid Card");
+//  lcd.setCursor(0,1);
+//  lcd.print("Enter Password:");
+//  delay(500);
+
+      //setRGBColor(0, 0, 0);
+      setRGBColor(255,255,0);  // Blue
+  Serial.println("Valid Card");
+  Serial.println("Enter Password");
+  
   correct = true;
   char customKey;
-  Serial.println("Please enter the password");
   i=0; 
   while(i<5)
   {
@@ -341,15 +402,29 @@ if (tagID.substring(1) == "40 1D 79 A5")
   }
   if(correct == true)
   {
-    Serial.println("\nCorrect Password\n");
+//    lcd.clear();
+//    lcd.setCursor(0,0);
+//    lcd.print("Correct Password");
+//    delay(500);
+    //setRGBColor(0, 0, 0);
+    setRGBColor(255,0,255);  // Green
+    Serial.println("Correct Password");
+    
     myStepper.step(-stepsPerRevolution);
       delay(3000);
       myStepper.step(stepsPerRevolution);
   }   
   else
-    Serial.println("\nIncorrect Password\n");
-   
-      
-    }
+  {
+//    lcd.clear();
+//    lcd.setCursor(0,0);
+//    lcd.println("Incorrect Password");
+//    lcd.clear();
+      //setRGBColor(0, 0, 0);
+      setRGBColor(0, 255, 255);  // red
+      Serial.println("Incorrect Password");
+        
+   }
 
+  }
 }
