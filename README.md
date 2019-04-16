@@ -86,16 +86,22 @@ The Home Automation project was designed and implemented as a group and the task
 
 ### Vivek Pujara
 – Lead Programmer
+
 – Project Management Lead
 
-### Mikhail Shchukin
+#### Mikhail Shchukin
 – Documentation Lead Specialist
+
 – Prototype Testing
 
-### Gideon Eromosele
+#### Gideon Eromosele
 – Primary Hardware Designer
+
 – Auxillary Programmer
 
-### Oluwatobi Adegbola
+#### Oluwatobi Adegbola
 – Auxillary Hardware Designer
+
 – User Requirement Ellicitation
+
+## Credits
