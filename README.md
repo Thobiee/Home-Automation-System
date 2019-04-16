@@ -27,4 +27,4 @@ This project will contain the following:
 
 # Hardware Connections and Schematics
 
-![Hardware Connections and Schematics](/Images/IH-Project Schematics.PNG "Hardware Connections and Schematics")
+![Hardware Connections and Schematics](/Images/IH-Project Schematics.png "Hardware Connections and Schematics")
