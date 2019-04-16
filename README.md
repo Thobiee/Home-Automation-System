@@ -19,33 +19,32 @@ This project will contain the following:
 
 * Sensors:
 
-– 1x RC522 RFID reader and RFID-Tag
+â€“ 1x RC522 RFID reader and RFID-Tag
+â€“ 1x Keypad
+â€“ 1x Rotary Potentiometer
+â€“ 4x Infrared sensors + emitters (square perimeter)
+â€“ 1x Passive Infrared sensor w/lens dome
 
-– 1x Keypad
-
-– 1x Rotary Potentiometer
-– 4x Infrared sensors + emitters (square perimeter)
-– 1x Passive Infrared sensor w/lens dome
-– 1x Photoresistor
-– 1x RHT03 Temperature + Humidity Sensor Module
-– 1x Wi-Fi module (NodeMCU ESP8266)
+â€“ 1x Photoresistor
+â€“ 1x RHT03 Temperature + Humidity Sensor Module
+â€“ 1x Wi-Fi module (NodeMCU ESP8266)
 
 * Actuators:
-– 4x Green, 4x Orange LEDs
-– 1x RGB LED
-– 1x Alarm Buzzer
-– 1x LCD Screen
-– 2x 28BYJ-48 Stepper Motors
-– 2x X113647 Stepper Driver Boards
-– 1x DC Motor Fan
+â€“ 4x Green, 4x Orange LEDs
+â€“ 1x RGB LED
+â€“ 1x Alarm Buzzer
+â€“ 1x LCD Screen
+
+â€“ 2x 28BYJ-48 Stepper Motors
+â€“ 2x X113647 Stepper Driver Boards
+â€“ 1x DC Motor Fan
 
 * Miscellaneous:
-– 1x Arduino Mega 2560 (Microcontroller board)
-– 1x External power supply board
-– 1x big + 2x smaller Prototyping Breadboards
-– Various Jumper Wires
-– Various Resistors (1k
-)
+â€“ 1x Arduino Mega 2560 (Microcontroller board)
+â€“ 1x External power supply board
+â€“ 1x big + 2x smaller Prototyping Breadboards
+â€“ Various Jumper Wires
+â€“ Various Resistors (1k)
 
 
 ## Web Application
