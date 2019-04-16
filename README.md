@@ -17,7 +17,7 @@ This project will contain the following:
 
 ## Bill of Materials
 
-### Sensors:
+#### Sensors:
 
 – 1x RC522 RFID reader and RFID-Tag
 
@@ -36,7 +36,7 @@ This project will contain the following:
 – 1x Wi-Fi module (NodeMCU ESP8266)
 
 
-### Actuators:
+#### Actuators:
 
 – 4x Green, 4x Orange LEDs
 
@@ -53,7 +53,7 @@ This project will contain the following:
 – 1x DC Motor Fan
 
 
-### Miscellaneous:
+#### Miscellaneous:
 
 – 1x Arduino Mega 2560 (Microcontroller board)
 
@@ -84,22 +84,22 @@ This project will contain the following:
 
 The Home Automation project was designed and implemented as a group and the tasks/roles of the group members includes:
 
-#### * Vivek Pujara
+#### Vivek Pujara
 – Lead Programmer
 
 – Project Management Lead
 
-#### * Mikhail Shchukin
+#### Mikhail Shchukin
 – Documentation Lead Specialist
 
 – Prototype Testing
 
-#### * Gideon Eromosele
+#### Gideon Eromosele
 – Primary Hardware Designer
 
 – Auxillary Programmer
 
-#### * Oluwatobi Adegbola
+#### Oluwatobi Adegbola
 – Auxillary Hardware Designer
 
 – User Requirement Ellicitation
@@ -113,5 +113,7 @@ The Home Automation project was designed and implemented as a group and the task
 Our sincere appreciation, goes to the following for making their materials available for use. 
 
 Trevor Tomesh for Advise and Instructions
+
 Miguel Balboa https://github.com/miguelbalboa/rfid
+
 Rui Santos https://randomnerdtutorials.com/esp8266-web-server/
