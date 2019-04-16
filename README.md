@@ -11,11 +11,11 @@ This project will contain the following:
 7. Project Demo etc.
 
 
-# Hardware Connections and Schematics
+## Hardware Connections and Schematics
 
 ![Hardware Connections and Schematics](/Images/IH_Project_Schematics.png "Hardware Connections and Schematics")
 
-# Bill of Materials
+## Bill of Materials
 
 * Sensors:
 
@@ -48,7 +48,7 @@ This project will contain the following:
 )
 
 
-# Web Application
+## Web Application
 
 ![Web Application](/Images/web_App.PNG "Web Application")
 
