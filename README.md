@@ -84,24 +84,34 @@ This project will contain the following:
 
 The Home Automation project was designed and implemented as a group and the tasks/roles of the group members includes:
 
-### Vivek Pujara
+#### * Vivek Pujara
 – Lead Programmer
 
 – Project Management Lead
 
-#### Mikhail Shchukin
+#### * Mikhail Shchukin
 – Documentation Lead Specialist
 
 – Prototype Testing
 
-#### Gideon Eromosele
+#### * Gideon Eromosele
 – Primary Hardware Designer
 
 – Auxillary Programmer
 
-#### Oluwatobi Adegbola
+#### * Oluwatobi Adegbola
 – Auxillary Hardware Designer
 
 – User Requirement Ellicitation
 
+
+## Usage
+
+
 ## Credits
+
+Our sincere appreciation, goes to the following for making their materials available for use. 
+
+Trevor Tomesh for Advise and Instructions
+Miguel Balboa https://github.com/miguelbalboa/rfid
+Rui Santos https://randomnerdtutorials.com/esp8266-web-server/
