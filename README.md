@@ -82,4 +82,20 @@ This project will contain the following:
 
 ## Team
 
-The Home Automation project was designed and implemented as a group and they are:
+The Home Automation project was designed and implemented as a group and the tasks/roles of the group members includes:
+
+### Vivek Pujara
+– Lead Programmer
+– Project Management Lead
+
+### Mikhail Shchukin
+– Documentation Lead Specialist
+– Prototype Testing
+
+### Gideon Eromosele
+– Primary Hardware Designer
+– Auxillary Programmer
+
+### Oluwatobi Adegbola
+– Auxillary Hardware Designer
+– User Requirement Ellicitation
