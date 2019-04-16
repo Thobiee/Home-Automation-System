@@ -18,8 +18,11 @@ This project will contain the following:
 # Bill of Materials
 
 * Sensors:
+
 – 1x RC522 RFID reader and RFID-Tag
+
 – 1x Keypad
+
 – 1x Rotary Potentiometer
 – 4x Infrared sensors + emitters (square perimeter)
 – 1x Passive Infrared sensor w/lens dome
