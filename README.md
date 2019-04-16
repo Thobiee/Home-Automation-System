@@ -1,4 +1,4 @@
-# Home-Automation-System
+﻿# Home-Automation-System
 
 This project will contain the following:
 
@@ -69,8 +69,6 @@ This project will contain the following:
 
 ## Web Application
 
-![Web Application](/Images/web_App.PNG "Web Application")
-
 1. Indoor Lights: 
 	The indoor light in the house can be triggered to ON/OFF by clicking the button function. Another alternative to this is to use the Motion sensor inside the house to trigger indoor lights to come ON.
 
@@ -79,3 +77,5 @@ This project will contain the following:
 
 3. Security Alarm: 
 	For the purpose of securing the house for when the owners are off to work or even sleeping at night, we added functionality to set the perimeter alarm to Activate/Deactivate depending on the owner. The Activate function arms the alarm, so it can trigger the perimeter security alarm when being intruded. And the Deactivate disarms the perimeter security alarm, this could be done when the family is home during the day.
+
+![Web Application](/Images/web_App.PNG "Web Application")
