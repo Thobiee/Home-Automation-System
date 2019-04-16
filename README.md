@@ -11,7 +11,7 @@ This project will contain the following:
 7. Project Demo etc.
 
 
-Web Application
+# Web Application
 
 1. Indoor Lights: 
 	The indoor light in the house can be triggered to ON/OFF by clicking the button function. Another alternative to this is to use the Motion sensor inside the house to trigger indoor lights to come ON.
