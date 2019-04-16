@@ -66,7 +66,6 @@ This project will contain the following:
 – Various Resistors (1k)
 
 
-
 ## Web Application
 
 1. Indoor Lights: 
@@ -79,3 +78,8 @@ This project will contain the following:
 	For the purpose of securing the house for when the owners are off to work or even sleeping at night, we added functionality to set the perimeter alarm to Activate/Deactivate depending on the owner. The Activate function arms the alarm, so it can trigger the perimeter security alarm when being intruded. And the Deactivate disarms the perimeter security alarm, this could be done when the family is home during the day.
 
 ![Web Application](/Images/web_App.PNG "Web Application")
+
+
+## Team
+
+The Home Automation project was designed and implemented as a group and they are:
