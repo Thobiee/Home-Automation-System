@@ -17,7 +17,7 @@ This project will contain the following:
 
 ## Bill of Materials
 
-Sensors:
+### Sensors:
 
 – 1x RC522 RFID reader and RFID-Tag
 
@@ -36,7 +36,7 @@ Sensors:
 – 1x Wi-Fi module (NodeMCU ESP8266)
 
 
-Actuators:
+### Actuators:
 
 – 4x Green, 4x Orange LEDs
 
@@ -53,7 +53,7 @@ Actuators:
 – 1x DC Motor Fan
 
 
-Miscellaneous:
+### Miscellaneous:
 
 – 1x Arduino Mega 2560 (Microcontroller board)
 
