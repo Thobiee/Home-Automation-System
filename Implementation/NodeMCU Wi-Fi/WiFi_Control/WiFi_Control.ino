@@ -2,12 +2,11 @@
 #include <SoftwareSerial.h>
 #include <ESP8266WiFi.h>
 
+// Serial communication with pin D2 and D3 (GPIO4 and 0)
 SoftwareSerial NodeSerial(D2, D3);
 
-//const char ssid[]="SM-G955W0291";  // replace with your ssid & pass
-//const char password[]="yszc9330";
-const char ssid[]="VIBE";  // replace with your ssid & pass
-const char password[]="11223344";
+const char ssid[]="ID";  // replace with your ssid & pass
+const char password[]="Password";
 int status = WL_IDLE_STATUS;
 
 // Set web server port number to 80
@@ -21,13 +20,14 @@ String output0State = "off";
 String output1State = "off";
 String output2State = "off";
 
+// Initialize commands to be passed to Arduino Mega
 const int zero = 0;
 const int one = 1;
 const int two = 2;
 const int three = 3;
 const int four = 4;
 const int five = 5;
-const int seven = 7 ;
+const int seven = 7;
 
 void setup() {
   pinMode(D2,INPUT);
@@ -80,7 +80,7 @@ void loop(){
             client.println("Connection: close");
             client.println();
             
-            // turns the GPIOs on and off
+            // Commands to execute in Mega
             if (header.indexOf("GET /0/on") >= 0) {
               Serial.println("GPIO 0 on");
               output0State = "on";             
@@ -136,8 +136,8 @@ void loop(){
   }
 }
 
+// Print status to serial monitor
 void wiFiStatus(){
-  
   // Print local IP address and start web server
   Serial.print("SSID --> ");
   Serial.println (WiFi.SSID());
@@ -148,15 +148,16 @@ void wiFiStatus(){
   
   Serial.print("MAC Address of ESP --> ");
   Serial.println(WiFi.macAddress() +"\n");
-  //WiFi.printDiag(Serial);
 }
 
+// Making sure the right value is passed to Mega
 void sendingData(int val){
   NodeSerial.write(val / 256);
   NodeSerial.write(val % 256);  
   delay(50);
 }
 
+// The HTML web page with JavaScript and CSS
 void HTML_Page(WiFiClient client, String A, String B, String C){
   client.println("<!DOCTYPE html><html>");
   client.println("<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
