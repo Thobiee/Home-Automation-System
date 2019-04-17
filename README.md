@@ -102,8 +102,7 @@ This folder, contains the code **_WiFi_Control.ino_** to be uploaded to _NodeMCU
 
 Our sincere appreciation, goes to the following for making their materials available for use. 
 
-Trevor Tomesh for Advise and Instructions
-
-Miguel Balboa https://github.com/miguelbalboa/rfid
-
-Rui Santos https://randomnerdtutorials.com/esp8266-web-server/
+- Trevor Tomesh for Advise and Instructions
+- Miguel Balboa https://github.com/miguelbalboa/rfid
+- Rui Santos https://randomnerdtutorials.com/esp8266-web-server/
+- Arduino CC http://arduino.cc/playground/Main/DHTLib
