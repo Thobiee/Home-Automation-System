@@ -1,6 +1,6 @@
 ﻿# Home-Automation-System
-
-This project will contain the following:
+ This project uses recent advancement in technology to build an home automation system. It provides an overview of the features that were implemented including how they were implemented.
+The project will contain the following:
 
 1. Project Description
 2. Hardware requirements
